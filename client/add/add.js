@@ -16,15 +16,16 @@ angular.module('divestop.addsite', [])
 
     $scope.thumbUpClick = false;
     $scope.thumbUp = function() {
-      console.log("thumb up")
-      $scope.thumbUpClick = !$scope.thumbUpClick;
-      console.log($scope.thumbUpClick);
+      if(!$scope.thumbDownClick) {
+        $scope.thumbUpClick = !$scope.thumbUpClick;
+      }
     };
 
     $scope.thumbDownClick = false;
     $scope.thumbDown = function() {
-      console.log("thumb down")
-      $scope.thumbDownClick = !$scope.thumbDownClick;
+      if(!$scope.thumbUpClick) {
+        $scope.thumbDownClick = !$scope.thumbDownClick;
+      }
     };
 
     var addToArray = function(item, array) {
