@@ -176,10 +176,10 @@ exports.search = function (cb, passedLocation) {
   var locationQuery = '';
   var upperLat, upperLong, lowerLat, lowerLong, params;
   if (passedLocation) {
-    upperLat = + passedLocation[0] + 1;
-    lowerLat = + passedLocation[0] - 1;
-    upperLong = + passedLocation[1] + 1;
-    lowerLong = + passedLocation[1] - 1;
+    upperLat = + passedLocation[0] + 0.08;
+    lowerLat = + passedLocation[0] - 0.08;
+    upperLong = + passedLocation[1] + 0.08;
+    lowerLong = + passedLocation[1] - 0.08;
   }
   params = [lowerLat, upperLat, lowerLong, upperLong];
   // need to get lat and long from search 
