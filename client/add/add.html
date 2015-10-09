@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container" ng-app="divestop.add">
   <h4>Dive Site</h4>
-  <div class="row addSiteForm" ng-controller="AddSiteController as form">
+
+  <div class="row addSiteForm" ng-controller="AddSiteController ">
     <form name="addSite" class="addSite">
 
     <div class="input-field">
@@ -19,19 +20,26 @@
     </div>
 
 
-    <div class="row">
+    <div class="row thumbs">
       <!-- <div class="input-field col s12 m4">
         <input id="depth" type="text" required ng-model="form.site.maxDepth">
         <label for="depth">Address </label>
       </div> -->
 
-      <div class="input-field col s12 m6">
+      <div class="input-field col s12 m4">
         <input type="text" disabled required ng-model="form.site.coordinates.lat" placeholder="Click Map!">
         <label class="active">Latitude</label>
       </div>
-      <div class="input-field col s12 m6">
+      <div class="input-field col s12 m4">
         <input type="text" disabled required ng-model="form.site.coordinates.lng" placeholder="Click Map!">
         <label class="active">Longitude</label>
+      </div>
+      <div class="input-field col s12 m4">
+        <ul class="thumbs">
+          <div> Rate The Dive </div>
+          <li  ng-class="{thumb_up: thumbUpClick}"><i ng-click="thumbUp()" class="medium material-icons">thumb_up</i></li>
+          <li ng-class="{thumb_down: thumbDownClick}"><i  ng-click="thumbDown()" class="medium material-icons">thumb_down</i></li>
+        </ul>
       </div>
     </div>
 

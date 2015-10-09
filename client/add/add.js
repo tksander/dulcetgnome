@@ -1,7 +1,7 @@
 // Controller for the add site form
 
 angular.module('divestop.addsite', [])
-  .controller('AddSiteController', function(SharedProperties, DiveSites, Photos, AppMap) {
+  .controller('AddSiteController', function(SharedProperties, DiveSites, Photos, AppMap, $scope) {
     this.site = {};
     this.site.features = [];
     this.site.aquaticLife = [];
@@ -13,6 +13,19 @@ angular.module('divestop.addsite', [])
     this.site.gradient = "tG";
 
     // this.templateUrl = 'add/add.html';
+
+    $scope.thumbUpClick = false;
+    $scope.thumbUp = function() {
+      console.log("thumb up")
+      $scope.thumbUpClick = !$scope.thumbUpClick;
+      console.log($scope.thumbUpClick);
+    };
+
+    $scope.thumbDownClick = false;
+    $scope.thumbDown = function() {
+      console.log("thumb down")
+      $scope.thumbDownClick = !$scope.thumbDownClick;
+    };
 
     var addToArray = function(item, array) {
       if(array.indexOf(item) === -1 && !isBlank(item)){
