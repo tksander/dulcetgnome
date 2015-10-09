@@ -21,25 +21,14 @@
   </div>
 </div> -->
 
-<div class="container">
+<div class="container" ng-controller="DiveSiteController">
+  <map id="map-canvas" center="37.773972, -122.431297" zoom="14" on-click="moveNewMarker()" scrollwheel="false"></map>
   <h4>Nearby Dives</h4>
     <table class="highlight">
       <tbody>
-        <tr>
+        <tr ng-repeat="(key, value) in bars">
           <td><i class="fa fa-map-signs"></i></td>
-          <td>Sad Bar</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-        <tr>
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>Jellybean</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-        <tr>
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>Lollipop</td>
+          <td>{{value.site}}</td>
           <td><span class="btn">Check In</span></td>
           <td><span class="btn">Rate</span></td>
         </tr>
