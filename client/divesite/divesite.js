@@ -17,21 +17,20 @@ angular.module('divestop.divesite', ['ngMap'])
       console.log('this got called');
       google.maps.event.addListener(map, 'dragend', function() {
         var custom = {lat: map.getCenter().lat(), lng: map.getCenter().lng()};
+        var stringCoord = map.getCenter().lat() + '_' + map.getCenter().lng(); 
         AppMap.getMap(function () {
-          console.log('IN THE CALLBACK');
-          DiveSites.getDiveSites(custom).then(function(results) {
-            console.log('in the right place');
-            console.log(results);
+          DiveSites.getDiveSites(stringCoord).then(function(results) {
+            $scope.bars = results;
           });
         }, map, custom);
       });
       // if map is initialized getMap without custom drag location
       AppMap.getMap(function () {
-        var center = {lat: map.getCenter().lat(), lng: map.getCenter().lng()};
+        var stringCoord = map.getCenter().lat() + '_' + map.getCenter().lng(); 
           console.log('IN THE CALLBACK');
-          DiveSites.getDiveSites(center).then(function(results) {
-            console.log('in the right place');
-            console.log(results);
+          DiveSites.getDiveSites(stringCoord).then(function(results) {
+            // 
+            $scope.bars = results;
           });
         }, map);  
     });
