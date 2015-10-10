@@ -21,21 +21,38 @@
   </div>
 </div> -->
 
-<div class="container" ng-controller="DiveSiteController">
+
+<div class="diveList" ng-controller="DiveSiteController">
   <map id="map-canvas" center="37.773972, -122.431297" zoom="14" on-click="moveNewMarker()" scrollwheel="false"></map>
-  
-  <h4>Nearby Dives</h4>
-    <table class="highlight">
-      <tbody>
-        <tr ng-repeat="(key, value) in bars">
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>{{value.site}}</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-      </tbody>
-    </table>
 
-    
-
+   <div class="addDiveSite">
+    <a ng-show="!toggle" ng-click="toggleMe()" class="right btn waves-effect waves-light submit">Add Dive Site</a>
+    <a ng-show="toggle" ng-click="toggleMe()" class="right btn waves-effect waves-light submit">See Nearby Dives</a>
+  </div>
+  <div class="nearby">
+    <h4>Nearby Dives</h4>
+    <div class="searchNormal" ng-controller="SearchController">
+      <nav>
+        <div class="nav-wrapper">
+        <form ng-submit='geocodeAddress(data.address)'>
+          <div class="input-field blue-grey lighten-2">
+            <input id="search" type="search" ng-model="data.address" placeholder="Where you trying to go bruh?">
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+        </div>
+      </nav>
+    </div>
+     <div class="row" ng-repeat="bar in bars">
+      <div class="col s12">
+        <ul class="diveListing">
+          <li><img ng-src="{{bar.picture || 'http://placehold.it/100x100'}}" />
+          <li><h5>{{ bar.site }}</h5><small>{{ bar.address }}</small></li>
+          <li><span class="btn submit"><i class="material-icons">done</i></span></li>
+          <li><span class="btn submit"><i class="material-icons">stars</i></span></li>
+        </ul>
+      </div>
+     </div>
+  </div>
 </div>

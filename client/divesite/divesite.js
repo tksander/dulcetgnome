@@ -31,6 +31,7 @@ angular.module('divestop.divesite', ['ngMap'])
           DiveSites.getDiveSites(stringCoord).then(function(results) {
             // 
             $scope.bars = results;
+            console.log(results);
           });
         }, map);  
     });
