@@ -293,7 +293,3 @@ exports.findUser = function (id, cb) {
   });
 };
 
-
-exports.findUser = function () {
-
-}
