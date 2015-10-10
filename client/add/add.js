@@ -10,7 +10,7 @@ angular.module('divestop.addsite', [])
     // this.site.photos.html_attributes: '<href src="https://maps.google.com/maps/contrib/110129543306744989778">'
     // this.site.name: "Li Po Cocktail Lounge"
     // this.site.vote: 1
-/*
+
     this.site = {};
     this.site.vicinity = 
     this.site.geometry.locations.J = 
@@ -18,7 +18,7 @@ angular.module('divestop.addsite', [])
     this.site.photos.html_attributes = 
     this.site.name = 
     this.site.vote = 
-*/
+
 
     // this.site.features = [];
     // this.site.aquaticLife = [];
@@ -84,11 +84,13 @@ angular.module('divestop.addsite', [])
     this.addSite = function() {
       // Deep copy the object so we can stringify coordinates before passing to server
       var newSite = deepCopy(this.site);
+
       AppMap.addMarker(newSite, SharedProperties.map);
-      this.hideForm();
+
       DiveSites.postNewSite(newSite).then(function(data) {
         this.clearForm();
       }.bind(this));
+      
     };
 
     this.removePhoto = function(index) {
