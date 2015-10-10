@@ -4,8 +4,8 @@
 var pg = require('pg');
 // 'postgresql://localhost';
 /* URL for hosted heroku postgresql database */
-var connectionString = process.env.DATABASE_URL || 'postgresql://localhost';
-// var connectionString = process.env.DATABASE_URL || 'postgresql://postgres:aaa@localhost';
+// var connectionString = process.env.DATABASE_URL || 'postgresql://localhost';
+var connectionString = process.env.DATABASE_URL || 'postgresql://postgres:aaa@localhost';
 
 
 exports.createTables = function (cb) {
@@ -99,6 +99,16 @@ var addOneSite = function (sites, index, client, done, cb) {
     0,
     currentSite.vicinity
   ];
+
+  // if user already voted on the bar
+  var vote = currentSite.vote || 0;
+  if(vote > 0) {
+    input[3]++;
+  }
+
+  if(vote < 0) {
+    input[4]++;
+  }
 
   client.query('SELECT * FROM sites WHERE site = $1 AND address = $2;', [input[0],input[5]], function (err, results) {
     if(results.rows.length === 0) {
@@ -284,3 +294,6 @@ exports.findUser = function (id, cb) {
 };
 
 
+exports.findUser = function () {
+
+}
