@@ -1,6 +1,6 @@
 // this controller handles the functionality of working with the map
-
-angular.module('divestop.map', ['ngMap'])
+// ['ngMap']
+angular.module('divestop.map', [])
   // the controller is called OurMapController so it doesn't interfere with the ngMap MapController
   .controller("OurMapController", function($scope, SharedProperties, DiveSites, AppMap) {
     $scope.newSite = SharedProperties.newSite; // Object with properties lat, lng
@@ -9,15 +9,6 @@ angular.module('divestop.map', ['ngMap'])
     
     SharedProperties.newSiteMarker = new google.maps.Marker();
 
-    $scope.$on("mapInitialized", function(e, map) {
-      // make API call to google maps on drag event
-      google.maps.event.addListener(map, 'dragend', function() {
-        var custom = {lat: map.getCenter().lat(), lng: map.getCenter().lng()};
-        AppMap.getMap(map, custom);
-      });
-      // if map is initialized getMap without custom drag location
-      AppMap.getMap(map);  
-    });
 
     $scope.toggle = false;
     $scope.toggleMe = function() {
@@ -29,7 +20,6 @@ angular.module('divestop.map', ['ngMap'])
        } else {
          AppMap.hideNewMarker();
        }
-
 
       return $scope.toggle;
     }

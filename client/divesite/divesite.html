@@ -21,42 +21,24 @@
   </div>
 </div> -->
 
-<div class="diveList">
+
+<div class="diveList" ng-controller="DiveSiteController">
+  <map id="map-canvas" center="37.773972, -122.431297" zoom="14" on-click="moveNewMarker()" scrollwheel="false"></map>
+   <div class="addDiveSite">
+    <a ng-show="!toggle" ng-click="toggleMe()" class="right btn waves-effect waves-light submit">Add Dive Site</a>
+    <a ng-show="toggle" ng-click="toggleMe()" class="right btn waves-effect waves-light submit">See Nearby Dives</a>
+  </div>
+
   <h4>Nearby Dives</h4>
-    <!-- <table class="highlight">
-      <tbody>
-        <tr>
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>Sad Bar</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-        <tr>
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>Jellybean</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-        <tr>
-          <td><i class="fa fa-map-signs"></i></td>
-          <td>Lollipop</td>
-          <td><span class="btn">Check In</span></td>
-          <td><span class="btn">Rate</span></td>
-        </tr>
-      </tbody>
-    </table> -->
-  <!-- Profile controller is a placeholder for now -->
-   <div class="row" ng-controller="ProfileCtrl">
+
+   <div class="row" ng-repeat="bar in bars">
     <div class="col s12">
       <ul class="diveListing">
-        <li><img ng-src="{{user.picture || 'http://placehold.it/100x100'}}" />
-        <li><h5>Sad Bar</h5><small>1412 Mission St., San Francisco, 94201</small></li>
+        <li><img ng-src="{{bar.photos[0] || 'http://placehold.it/100x100'}}" />
+        <li><h5>{{ bar.name }}</h5><small>{{ bar.vicinity }}</small></li>
         <li><span class="btn submit"><i class="material-icons">done</i></span></li>
         <li><span class="btn submit"><i class="material-icons">stars</i></span></li>
       </ul>
-   <!--    <ul class="diveAddress">
-        <li>1412 Mission St., San Francisco, 94201</li>
-      </ul> -->
     </div>
    </div>
 </div>

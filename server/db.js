@@ -100,6 +100,16 @@ var addOneSite = function (sites, index, client, done, cb) {
     currentSite.vicinity
   ];
 
+  // if user already voted on the bar
+  var vote = currentSite.vote || 0;
+  if(vote > 0) {
+    input[3]++;
+  }
+
+  if(vote < 0) {
+    input[4]++;
+  }
+
   client.query('SELECT * FROM sites WHERE site = $1 AND address = $2;', [input[0],input[5]], function (err, results) {
     if(results.rows.length === 0) {
       client.query('INSERT INTO sites (site, lat, long, upvote, downvote, address) VALUES ($1, $2, $3, $4, $5, $6);', input, 
@@ -284,3 +294,6 @@ exports.findUser = function (id, cb) {
 };
 
 
+exports.findUser = function () {
+
+}
