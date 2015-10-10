@@ -21,9 +21,9 @@
   </div>
 </div> -->
 
-<div class="container">
+<div class="diveList">
   <h4>Nearby Dives</h4>
-    <table class="highlight">
+    <!-- <table class="highlight">
       <tbody>
         <tr>
           <td><i class="fa fa-map-signs"></i></td>
@@ -44,5 +44,19 @@
           <td><span class="btn">Rate</span></td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
+  <!-- Profile controller is a placeholder for now -->
+   <div class="row" ng-controller="ProfileCtrl">
+    <div class="col s12">
+      <ul class="diveListing">
+        <li><img ng-src="{{user.picture || 'http://placehold.it/100x100'}}" />
+        <li><h5>Sad Bar</h5><small>1412 Mission St., San Francisco, 94201</small></li>
+        <li><span class="btn submit"><i class="material-icons">done</i></span></li>
+        <li><span class="btn submit"><i class="material-icons">stars</i></span></li>
+      </ul>
+   <!--    <ul class="diveAddress">
+        <li>1412 Mission St., San Francisco, 94201</li>
+      </ul> -->
+    </div>
+   </div>
 </div>
