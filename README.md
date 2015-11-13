@@ -8,7 +8,6 @@ Web application that enables users to search across the globe for dive bars and 
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
 
 ## Team
 
