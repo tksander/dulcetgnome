@@ -1,13 +1,6 @@
-# dulcetgnome [![Build Status](https://travis-ci.org/dulcetgnome/dulcetgnome.svg?branch=master)](https://travis-ci.org/dulcetgnome/dulcetgnome)
-Greenfield Project
+# Dive Stop
 
 Web application that enables users to search across the globe for dive bars and add their favorite dive bars to the map
-
-## Team
-
-  - Product Owner: Tim Scheys
-  - Scrum Master: Edgar Padon
-  - Development Team Members: Tommy Sander, Bowen Yang, Tim Scheys, Edgar Pabon
 
 ## Table of Contents
 
@@ -17,6 +10,11 @@ Web application that enables users to search across the globe for dive bars and 
     1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)
 
+## Team
+
+  - Product Owner: Tim Scheys
+  - Scrum Master: Edgar Padon
+  - Development Team Members: Tommy Sander, Bowen Yang, Tim Scheys, Edgar Pabon
 
 
 ## Requirements
